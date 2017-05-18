@@ -61,6 +61,20 @@ static b2World *world;
     ((b2ParticleSystem *)particleSystem)->CreateParticleGroup(particleGroupDef);
 }
 
++ (void)createParticleHorForSystem:(void *)particleSystem
+                             position:(Vector2D)position size:(Size2D)size {
+    b2PolygonShape shape;
+    shape.SetAsBox(size.width * 0.025f, size.height * 0.5f);
+    
+    b2ParticleGroupDef particleGroupDef;
+    particleGroupDef.flags =  b2_tensileParticle;
+    
+    particleGroupDef.position.Set(position.x, position.y);
+    particleGroupDef.shape = &shape;
+    
+    ((b2ParticleSystem *)particleSystem)->CreateParticleGroup(particleGroupDef);
+}
+
 + (int)particleCountForSystem:(void *)particleSystem {
     return ((b2ParticleSystem *)particleSystem)->GetParticleCount();
 }

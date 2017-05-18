@@ -38,6 +38,9 @@ typedef struct Vector2D {
 + (void)createParticleSlinkyForSystem:(void *)particleSystem
                           position:(Vector2D)position size:(Size2D)size;
 
++ (void)createParticleHorForSystem:(void *)particleSystem
+                             position:(Vector2D)position size:(Size2D)size;
+
 + (int)particleCountForSystem:(void *)particleSystem;
 + (void *)particlePositionsForSystem:(void *)particleSystem;
 
