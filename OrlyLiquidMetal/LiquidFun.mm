@@ -33,10 +33,14 @@ static b2World *world;
 
 
 
-+ (void)createParticleBoxForSystem:(void *)particleSystem
++ (void)createParticleVerticleBoxForSystem:(void *)particleSystem
                           position:(Vector2D)position size:(Size2D)size {
     b2PolygonShape shape;
     shape.SetAsBox(size.width * 1.2f, size.height * 0.025f);
+    
+    b2CircleShape shape2;
+    shape2.m_radius = size.width*1.2f;
+    
     
     b2ParticleGroupDef particleGroupDef;
     particleGroupDef.flags =  b2_tensileParticle;
@@ -45,9 +49,22 @@ static b2World *world;
     
     ((b2ParticleSystem *)particleSystem)->CreateParticleGroup(particleGroupDef);
 }
++ (void)createParticleCircleForSystem:(void *)particleSystem
+                                  position:(Vector2D)position size:(Size2D)size {
 
+    b2CircleShape shape2;
+    shape2.m_radius = size.width*0.8f;
+    
+    
+    b2ParticleGroupDef particleGroupDef;
+    particleGroupDef.flags =  b2_tensileParticle;
+    particleGroupDef.position.Set(position.x, position.y);
+    particleGroupDef.shape = &shape2;
+    
+    ((b2ParticleSystem *)particleSystem)->CreateParticleGroup(particleGroupDef);
+}
 
-+ (void)createParticleSlinkyForSystem:(void *)particleSystem
++ (void)createParticleBoxForSystem:(void *)particleSystem
                           position:(Vector2D)position size:(Size2D)size {
     b2PolygonShape shape;
     shape.SetAsBox(size.width * 0.5f, size.height * 0.5f);
@@ -61,7 +78,7 @@ static b2World *world;
     ((b2ParticleSystem *)particleSystem)->CreateParticleGroup(particleGroupDef);
 }
 
-+ (void)createParticleHorForSystem:(void *)particleSystem
++ (void)createParticleHorizontalForSystem:(void *)particleSystem
                              position:(Vector2D)position size:(Size2D)size {
     b2PolygonShape shape;
     shape.SetAsBox(size.width * 0.025f, size.height * 0.5f);

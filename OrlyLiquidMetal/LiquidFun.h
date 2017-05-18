@@ -32,13 +32,16 @@ typedef struct Vector2D {
                             gravityScale:(float)gravityScale density:(float)density;
 
 
++ (void)createParticleVerticleBoxForSystem:(void *)particleSystem
+                          position:(Vector2D)position size:(Size2D)size;
+
++ (void)createParticleCircleForSystem:(void *)particleSystem
+                                  position:(Vector2D)position size:(Size2D)size;
+
 + (void)createParticleBoxForSystem:(void *)particleSystem
                           position:(Vector2D)position size:(Size2D)size;
 
-+ (void)createParticleSlinkyForSystem:(void *)particleSystem
-                          position:(Vector2D)position size:(Size2D)size;
-
-+ (void)createParticleHorForSystem:(void *)particleSystem
++ (void)createParticleHorizontalForSystem:(void *)particleSystem
                              position:(Vector2D)position size:(Size2D)size;
 
 + (int)particleCountForSystem:(void *)particleSystem;

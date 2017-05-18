@@ -283,6 +283,8 @@ class ViewController: UIViewController {
         
     }
     
+    var raindelay = 30
+    
     func emitparticler5000()
     {
         
@@ -309,71 +311,67 @@ class ViewController: UIViewController {
         
         if(gravity2 == 1)
         {
-            
-            
-            
+//SoundBar
             normalizedamplitude = normalizedamplitude / 4
             let position = Vector2D(x: Float(view.bounds.width - view.bounds.width + 100) / ptmRatio,
                                     y: Float(view.bounds.height - CGFloat(normalizedfrequency)) / ptmRatio)
             let size = Size2D(width: Float(normalizedamplitude), height: 100 / ptmRatio)
-            LiquidFun.createParticleBox(forSystem: particleSystem, position: position, size: size)
+            LiquidFun.createParticleVerticleBox(forSystem: particleSystem, position: position, size: size)
             LiquidFun.setGravity(Vector2D(x: -gravity, y: 0.0))
             
         }else if(gravity2 == 0){
-            
+//Vortex
             normalizedamplitude = normalizedamplitude / 6
-            
             var thing =  Float(view.bounds.height) - Float(view.bounds.height / 2)
             let position = Vector2D(x: Float(view.bounds.width - view.bounds.width/2) / ptmRatio,
                                     y: Float(thing) / ptmRatio)
             let size = Size2D(width: Float(normalizedamplitude), height: Float(normalizedamplitude))
-            LiquidFun.createParticleSlinky(forSystem: particleSystem, position: position, size: size)
+            LiquidFun.createParticleBox(forSystem: particleSystem, position: position, size: size)
             LiquidFun.setGravity(Vector2D(x: 0.0, y: 0.0))
             
         } else if(gravity2 == 2){
+//Fountains
             normalizedamplitude = normalizedamplitude / 6
             //Left
             var thing1 =  Float(view.bounds.height) - Float(view.bounds.height / 4)
             let position1 = Vector2D(x: Float(view.bounds.width - view.bounds.width) / ptmRatio,
                                     y: Float(thing1) / ptmRatio)
             let size1 = Size2D(width: Float(normalizedamplitude), height: Float(normalizedamplitude))
-            LiquidFun.createParticleSlinky(forSystem: particleSystem, position: position1, size: size1)
+            LiquidFun.createParticleBox(forSystem: particleSystem, position: position1, size: size1)
                 
             //Right
             var thing2 =  Float(view.bounds.height) - Float(view.bounds.height) + Float(view.bounds.height / 4)
             let position2 = Vector2D(x: Float(view.bounds.width - view.bounds.width) / ptmRatio,
                                         y: Float(thing2) / ptmRatio)
             let size2 = Size2D(width: Float(normalizedamplitude), height: Float(normalizedamplitude))
-            LiquidFun.createParticleSlinky(forSystem: particleSystem, position: position2, size: size2)
+            LiquidFun.createParticleBox(forSystem: particleSystem, position: position2, size: size2)
             LiquidFun.setGravity(Vector2D(x: 0.0, y: 0.0))
                 
             
         }else if(gravity2 == 3){
+//RainDrops
+            if(raindelay == 0)
+            {
             normalizedamplitude = normalizedamplitude / 6
             //Left
             //var thing1 =  Float(view.bounds.height)
-            let position1 = Vector2D(x: Float(view.bounds.width - view.bounds.width/2) / ptmRatio,
+            let position1 = Vector2D(x: Float(view.bounds.width - view.bounds.width/3) / ptmRatio,
                                     y: Float(view.bounds.height - CGFloat(normalizedfrequency)) / ptmRatio)
             let size1 = Size2D(width: Float(normalizedamplitude), height: Float(normalizedamplitude))
-            LiquidFun.createParticleSlinky(forSystem: particleSystem, position: position1, size: size1)
-                
-                
-            //Right
-            //var thing2 =  Float(view.bounds.height) - Float(view.bounds.height)
-            let position2 = Vector2D(x: Float(view.bounds.width - view.bounds.width/2) / ptmRatio,
-                                     y: Float(view.bounds.height - CGFloat(normalizedfrequency)) / ptmRatio)
-            let size2 = Size2D(width: Float(normalizedamplitude), height: Float(normalizedamplitude))
-            LiquidFun.createParticleSlinky(forSystem: particleSystem, position: position2, size: size2)
+            LiquidFun.createParticleCircle(forSystem: particleSystem, position: position1, size: size1)
+                raindelay = 30
+            }
+            raindelay = raindelay-1
             LiquidFun.setGravity(Vector2D(x: -gravity/4, y: 0.0))
-                
             
         }else if(gravity2 == 4){
+//LineBar
             normalizedamplitude = normalizedamplitude / 6
             var thing =  Float(view.bounds.height) - Float(view.bounds.height / 2)
             let position = Vector2D(x: Float(view.bounds.width - view.bounds.width/2) / ptmRatio,
                                     y: Float(thing) / ptmRatio)
             let size = Size2D(width: Float(normalizedamplitude), height: Float(15))
-            LiquidFun.createParticleHor(forSystem: particleSystem, position: position, size: size)
+            LiquidFun.createParticleHorizontal(forSystem: particleSystem, position: position, size: size)
             LiquidFun.setGravity(Vector2D(x: 0.0, y: 0.0))
             }
         }
@@ -401,46 +399,33 @@ class ViewController: UIViewController {
                                         y: Float(view.bounds.height - touchLocation.y) / ptmRatio)
                 let size = Size2D(width: 100 / ptmRatio, height: 100 / ptmRatio)
                 
-                LiquidFun.createParticleSlinky(forSystem: particleSystem, position: position, size: size)
-//                if(gravity2 == 0)
-//                {
-//                    gravity2 = 1
-//                    LiquidFun.setGravity(Vector2D(x: 0.0, y: -gravity))
-//                }
-//                else if(gravity2 == 1){
-//                    gravity2 = 2
-//                    LiquidFun.setGravity(Vector2D(x: gravity, y: 0.0))
-//                }
-//                else if(gravity2 == 2)
-//                {
-//                    gravity2 = 3
-//                    LiquidFun.setGravity(Vector2D(x: 0.0, y: gravity))
-//                }
+                LiquidFun.createParticleBox(forSystem: particleSystem, position: position, size: size)
+
                 if(gravity2 == 0)
                 {
                     gravity2 = 1
                     //createnewparticlesystem(radius: 20 / 32, damping: 0.0, gravityscale: 1, densiti: 5, max_part: 2250)
-                    LiquidFun.setGravity(Vector2D(x: -gravity, y: 0.0))
+                    
                 }
                 else if(gravity2 == 1)
                 {
                     gravity2 = 2
-                    LiquidFun.setGravity(Vector2D(x: 0.0, y: 0.0))
+                   
                 }
                 else if(gravity2 == 2)
                 {
                     gravity2 = 3
-                    LiquidFun.setGravity(Vector2D(x: -gravity/4, y: 0.0))
+                    
                 }
                 else if(gravity2 == 3)
                 {
                     gravity2 = 4
-                    LiquidFun.setGravity(Vector2D(x: 0.0, y: 0.0))
+                    
                 }
                 else if(gravity2 == 4)
                 {
                     gravity2 = 0
-                    LiquidFun.setGravity(Vector2D(x: 0.0, y: 0.0))
+                    
                 }
                 
                 
