@@ -1,6 +1,6 @@
-# LiquidFun_Swift3_iOS
+# LiquidMusic
 
-iOS Swift3 Wrapper for Google liquidfun
-
-update to the tutorial: https://www.raywenderlich.com/85515/liquidfun-tutorial-1
+The beauty in mixing natural sound with liquid particle dynamics. 
+AudioKit + LiquidFun + swift3
+Enjoy ;)
 
