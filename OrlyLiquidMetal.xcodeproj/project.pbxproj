@@ -70,8 +70,6 @@
 		22281EDD1EC96BB4002DA3A9 /* LiquidFun.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22281EDC1EC96BB4002DA3A9 /* LiquidFun.mm */; };
 		2245FB241ECAE15C003E6148 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2245FB231ECAE15C003E6148 /* AudioKit.framework */; };
 		2245FB251ECAE15C003E6148 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2245FB231ECAE15C003E6148 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2261468D1ECD55AC003E499E /* ViewLiquidSoundBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261468C1ECD55AC003E499E /* ViewLiquidSoundBar.swift */; };
-		2261468F1ECD5930003E499E /* liquidsoundbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2261468E1ECD5930003E499E /* liquidsoundbar.storyboard */; };
 		22C7BD141EC9A10900D7C573 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 22C7BD131EC9A10900D7C573 /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
@@ -235,8 +233,6 @@
 		22281EDC1EC96BB4002DA3A9 /* LiquidFun.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LiquidFun.mm; sourceTree = "<group>"; };
 		22281EDE1EC96C50002DA3A9 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		2245FB231ECAE15C003E6148 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
-		2261468C1ECD55AC003E499E /* ViewLiquidSoundBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLiquidSoundBar.swift; sourceTree = "<group>"; };
-		2261468E1ECD5930003E499E /* liquidsoundbar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = liquidsoundbar.storyboard; sourceTree = "<group>"; };
 		22C7BD131EC9A10900D7C573 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -293,7 +289,6 @@
 				22281D961EC967D0002DA3A9 /* Box2D */,
 				22281D681EC96728002DA3A9 /* AppDelegate.swift */,
 				22281D6A1EC96728002DA3A9 /* ViewController.swift */,
-				2261468C1ECD55AC003E499E /* ViewLiquidSoundBar.swift */,
 				22281D6C1EC96729002DA3A9 /* Main.storyboard */,
 				22281D6F1EC96729002DA3A9 /* Assets.xcassets */,
 				22281D711EC96729002DA3A9 /* LaunchScreen.storyboard */,
@@ -302,7 +297,6 @@
 				22281EDC1EC96BB4002DA3A9 /* LiquidFun.mm */,
 				22281EDE1EC96C50002DA3A9 /* Bridging-Header.h */,
 				22C7BD131EC9A10900D7C573 /* Shaders.metal */,
-				2261468E1ECD5930003E499E /* liquidsoundbar.storyboard */,
 			);
 			path = OrlyLiquidMetal;
 			sourceTree = "<group>";
@@ -618,7 +612,6 @@
 			files = (
 				22281D731EC96729002DA3A9 /* LaunchScreen.storyboard in Resources */,
 				22281D701EC96729002DA3A9 /* Assets.xcassets in Resources */,
-				2261468F1ECD5930003E499E /* liquidsoundbar.storyboard in Resources */,
 				22281D6E1EC96729002DA3A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -674,7 +667,6 @@
 				22281ED81EC967D1002DA3A9 /* b2VoronoiDiagram.cpp in Sources */,
 				22281ECD1EC967D1002DA3A9 /* b2PrismaticJoint.cpp in Sources */,
 				22281E691EC967D1002DA3A9 /* b2CircleShape.cpp in Sources */,
-				2261468D1ECD55AC003E499E /* ViewLiquidSoundBar.swift in Sources */,
 				22281EC21EC967D1002DA3A9 /* b2ContactSolver.cpp in Sources */,
 				22281E631EC967D1002DA3A9 /* b2CollidePolygon.cpp in Sources */,
 				22281EC51EC967D1002DA3A9 /* b2PolygonAndCircleContact.cpp in Sources */,
