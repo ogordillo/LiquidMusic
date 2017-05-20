@@ -10,7 +10,7 @@ import UIKit
 import CoreMotion
 import AudioKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     let gravity: Float = 150
     let ptmRatio: Float = 32.0
@@ -44,8 +44,17 @@ class ViewController: UIViewController {
    
     
     override func viewDidLoad() {
+        
+        
         LiquidFun.createWorld(withGravity: Vector2D(x: 0.0, y:0))
         super.viewDidLoad()
+        
+        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        longpress.minimumPressDuration = 0.5
+        longpress.delaysTouchesBegan = true
+        longpress.delegate = self
+        self.view.addGestureRecognizer(longpress)
+        
         
         tracker = AKFrequencyTracker.init(microphone, hopSize: 200, peakCount: 2000)
         silence = AKBooster(tracker, gain:0)
@@ -377,7 +386,7 @@ class ViewController: UIViewController {
         }
     
     
-        print(normalizedamplitude, normalizedfrequency)
+        //print(normalizedamplitude, normalizedfrequency)
     }
     
     
@@ -392,6 +401,8 @@ class ViewController: UIViewController {
     var gravity2 = 0
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        
         for touchObject in touches {
             if let touch = touchObject as? UITouch {
                 let touchLocation = touch.location(in: view)
@@ -405,27 +416,27 @@ class ViewController: UIViewController {
                 {
                     gravity2 = 1
                     //createnewparticlesystem(radius: 20 / 32, damping: 0.0, gravityscale: 1, densiti: 5, max_part: 2250)
-                    
+                    LiquidFun.setGravity(Vector2D(x: -gravity, y: 0.0))
                 }
                 else if(gravity2 == 1)
                 {
                     gravity2 = 2
-                   
+                    LiquidFun.setGravity(Vector2D(x: 0.0, y: 0.0))
                 }
                 else if(gravity2 == 2)
                 {
                     gravity2 = 3
-                    
+                    LiquidFun.setGravity(Vector2D(x: -gravity/4, y: 0.0))
                 }
                 else if(gravity2 == 3)
                 {
                     gravity2 = 4
-                    
+                    LiquidFun.setGravity(Vector2D(x: 0.0, y: 0.0))
                 }
                 else if(gravity2 == 4)
                 {
                     gravity2 = 0
-                    
+                    LiquidFun.setGravity(Vector2D(x: 0.0, y: 0.0))
                 }
                 
                 
@@ -445,6 +456,11 @@ class ViewController: UIViewController {
     }
     
     
-
+    
+    func handleLongPress() {
+        print("booii")
+        
+        
+    }
 }
 
